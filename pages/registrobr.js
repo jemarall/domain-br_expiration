@@ -106,7 +106,7 @@ export default function App(req, res) {
   
     const getAnswer = async () => {
 
-        const puppeteer = require('puppeteer');
+        const puppeteer = require('puppeteer-core');
     
       const res = await fetch("https://yesno.wtf/api");
       const json = await res.json();
