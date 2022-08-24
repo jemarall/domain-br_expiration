@@ -1,4 +1,6 @@
-/*
+const chromium = require('chrome-aws-lambda');
+const puppeteer = require('puppeteer-core');
+
 module.exports = {
     reactStrictMode: false,
     webpack5: true,
@@ -8,13 +10,12 @@ module.exports = {
       config.resolve.fallback = {
         dns : false, 
         fs : false, 
-        net: false, 
-        tls: false, 
-        child_process: false,
-        readline: false,
+//        net: false, 
+//        tls: false, 
+//        child_process: false,
+//        readline: false,
       };
 
       return config;
     }
 }
-*/
