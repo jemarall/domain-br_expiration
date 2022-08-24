@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer-core');
     
-export default function registrobr(req, res) {
+export default (req, res) = async () => {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
