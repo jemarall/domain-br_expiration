@@ -1,6 +1,7 @@
 function Home() {
     const dynamicDate = new Date();
-    const dynamicDateString = dynamicDate.toGTMString();
+    const dynamicDateString = dynamicDate.toGMTString();
+
     return <div>{dynamicDateString}</div>
 }
 
