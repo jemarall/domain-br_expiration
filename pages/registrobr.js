@@ -1,3 +1,4 @@
+import fs from "fs";
 const puppeteer = require('puppeteer');
     
 export default async (req, res) => {
@@ -18,7 +19,6 @@ export default async (req, res) => {
     
     await browser.close();
 
-    res.statusCode = 200
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify({ date: dynamicDateString, expiracao: resultado }))    
 
