@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jemarall/domain-br_expiration#readme",
   "dependencies": {
     "next": "^12.2.5",
+    "puppeteer": "^16.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
