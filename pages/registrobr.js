@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
     
-export default (req, res) = async () => {
+export default async (req, res) => {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
