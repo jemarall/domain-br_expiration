@@ -1,6 +1,7 @@
-function registrobr(request, response) {
-    const puppeteer = require('puppeteer');
-    const browser = await puppeteer.launch();
+const puppeteer = require('puppeteer');
+    
+export default async (req, res) => {
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
     const qualquerUrl = `https://www.registro.br/tecnologia/ferramentas/whois/?search=obile.com.br`;
@@ -23,5 +24,3 @@ function registrobr(request, response) {
     })
 
 }
-
-export default async registrobr
