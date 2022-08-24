@@ -98,16 +98,48 @@ export default function App() {
 
 
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
+import chromium from "chrome-aws-lambda"
+
+
+async function getBrowserInstance() {
+	const executablePath = await chromium.executablePath
+
+	if (!executablePath) {
+		// running locally
+		const puppeteer = require('puppeteer-core')
+		return puppeteer.launch({
+			args: chromium.args,
+			headless: true,
+			defaultViewport: {
+				width: 1280,
+				height: 720
+			},
+			ignoreHTTPSErrors: true
+		})
+	}
+
+	return chromium.puppeteer.launch({
+		args: chromium.args,
+		defaultViewport: {
+			width: 1280,
+			height: 720
+		},
+		executablePath,
+		headless: chromium.headless,
+		ignoreHTTPSErrors: true
+	})
+}
+
 
 export default function App(req, res) {
     
     const [val, setVal] = useState();
   
     const getAnswer = async () => {
+        
+browser = await getBrowserInstance()
 
-        const puppeteer = require('puppeteer-core');
-    
       const res = await fetch("https://yesno.wtf/api");
       const json = await res.json();
       
