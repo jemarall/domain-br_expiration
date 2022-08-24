@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
     
 export default async (req, res) => {
     const browser = await puppeteer.launch({ headless: true });
@@ -18,9 +18,8 @@ export default async (req, res) => {
     
     await browser.close();
 
-    response.json({
-        date: dynamicDateString,
-        expiracao: resultado
-    })
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'application/json')
+    res.end(JSON.stringify({ date: dynamicDateString, expiracao: resultado }))    
 
 }
