@@ -2,7 +2,7 @@ const chromium = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
 
 module.exports = {
-    reactStrictMode: false,
+    //reactStrictMode: false,
     webpack5: true,
     webpack: (config) => {
 //      config.experiments = {topLevelAwait: true}
